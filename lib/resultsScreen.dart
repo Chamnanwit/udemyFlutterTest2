@@ -28,9 +28,8 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SummaryData = getSummaryData();
     final numTotalQuestions = questions.length;
-    final numCorrectQuestions = SummaryData.where((data) {
+    final numCorrectQuestions = getSummaryData().where((data) {
       return data['user_answer'] == data['correct_anwer'];
     }).length;
 
@@ -51,7 +50,7 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            QuestionsSummary(SummaryData),
+            QuestionsSummary(getSummaryData()),
             const SizedBox(
               height: 30,
             ),
